@@ -3,6 +3,7 @@ package com.example.demo
 import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
+import android.widget.LinearLayout
 import androidx.constraintlayout.widget.ConstraintLayout
 import kotlinx.android.synthetic.main.indicator_progressbar_layout.view.*
 
@@ -21,7 +22,9 @@ class CustomIndicatorProgressBar @JvmOverloads constructor(
     }
 
     fun moveThumbTo(dx: Int) {
-        thumb.translationX = dx.toFloat()
+        val params = thumb.layoutParams as LinearLayout.LayoutParams
+        params.marginStart = dx
+        thumb.layoutParams = params
     }
 
 }
